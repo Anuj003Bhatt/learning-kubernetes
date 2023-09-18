@@ -7,14 +7,24 @@ Operation | Commands
 List running processes/containers (Stopped are not included here) | ```bash docker ps ```
 List all running processes/containers | ```bash docker ps -a```
 List IDs of all running processes/containers | ```bash docker ps -aq```
-Running a container | ```bash docker run [-p outPort:inPort] [-it] <Image ID>```
-Stopping a running container | ```bash docker stop <Container ID>```
-Removing a running process | ```bash docker rm <Container ID>```
+Running a container (creates new one from image) | ```bash docker run [-p outPort:inPort]  [-d][-it] <Image>```
+Starting an existing container | ```bash docker start [-a] <Container>``` 
+Attach to a running container | ```bash docker attach <Container>```
+Stopping a running container | ```bash docker stop <Container>```
+Removing a running process | ```bash docker rm <Container>```
 Removing all running processes | ```bash docker rm $(docker ps -aq)```
 List Images | ```bash docker images -a```
-Delete Image | ```bash docker rmi <Image ID>```
+Delete Image | ```bash docker rmi <Image>```
 Delete all Images | ```bash docker rmi $(docker images -aq)```
+Fetch container logs | ```bash docker logs [-f] <Container>```
 
-## Parameters
-- `-p`: Mention the port to run the container on and the port to bind to internally.
-- `-it`: Launch/Expose interactive session.
+## Parameters explained
+Option | Command | Meaning
+--- | --- | ---
+`-p` | Run Container | Mention the port to run the container on and the port to bind to internally.
+`-it` | Run Container | Launch/Expose interactive session.
+`-d` | Run Container | Detached mode
+`-f` | Logs |  Follow
+`-a` | Start Container | Start a container in attach mode
+`-a` | List processes / Container | Show all (including stopped containers)
+
