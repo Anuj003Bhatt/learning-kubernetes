@@ -4,19 +4,20 @@ Optional parameters appear in brackets below. For ease of referece only the wide
 
 Operation | Commands
 --- | ---
-List running processes/containers (Stopped are not included here) | ```bash docker ps ```
-List all running processes/containers | ```bash docker ps -a```
-List IDs of all running processes/containers | ```bash docker ps -aq```
-Running a container (creates new one from image) | ```bash docker run [-p outPort:inPort]  [-d][-it] <Image>```
-Starting an existing container | ```bash docker start [-a] <Container>``` 
-Attach to a running container | ```bash docker attach <Container>```
-Stopping a running container | ```bash docker stop <Container>```
-Removing a running process | ```bash docker rm <Container>```
-Removing all running processes | ```bash docker rm $(docker ps -aq)```
-List Images | ```bash docker images -a```
-Delete Image | ```bash docker rmi <Image>```
-Delete all Images | ```bash docker image prune```
-Fetch container logs | ```bash docker logs [-f] <Container>```
+List running processes/containers (Stopped are not included here) | ```docker ps ```
+List all running processes/containers | ```docker ps -a```
+List IDs of all running processes/containers | ```docker ps -aq```
+Running a container (creates new one from image) | ```docker run [-p outPort:inPort]  [-d][-it] <Image>```
+Starting an existing container | ```docker start [-a] <Container>``` 
+Attach to a running container | ```docker attach <Container>```
+Stopping a running container | ```docker stop <Container>```
+Removing a running process | ```docker rm <Container>```
+Removing all running processes | ```docker rm $(docker ps -aq)```
+List Images | ```docker images -a```
+Delete Image | ```docker rmi <Image>```
+Delete all Images | ```docker image prune```
+Fetch container logs | ```docker logs [-f] <Container>```
+Build a docker image | ```docker build [-t 'name:tag'] <Path To Dockerfile DIR>```
 
 ## Parameters explained
 Option | Command | Meaning
