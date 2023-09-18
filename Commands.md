@@ -22,7 +22,8 @@ Fetch container logs | ```bash docker logs [-f] <Container>```
 Option | Command | Meaning
 --- | --- | ---
 `-p` | Run Container | Mention the port to run the container on and the port to bind to internally.
-`-it` | Run Container | Launch/Expose interactive session.
+`-i` | Run Container | Launch/Expose interactive session.
+`-t` | Run/Start container | Launch a pseudo pseudo TTY session
 `-d` | Run Container | Detached mode
 `-f` | Logs |  Follow
 `-a` | Start Container | Start a container in attach mode
