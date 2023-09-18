@@ -7,7 +7,8 @@ Operation | Commands
 List running processes/containers (Stopped are not included here) | ```bash docker ps ```
 List all running processes/containers | ```bash docker ps -a```
 List IDs of all running processes/containers | ```bash docker ps -aq```
-Running a container | ```bash docker run [-p outPort:inPort] [-it] <Image ID>```
+Running a container (creates new one from image) | ```bash docker run [-p outPort:inPort] [-it] <Image ID>```
+Restarting an existing container | ```bash docker start <Container>``` 
 Stopping a running container | ```bash docker stop <Container ID>```
 Removing a running process | ```bash docker rm <Container ID>```
 Removing all running processes | ```bash docker rm $(docker ps -aq)```
