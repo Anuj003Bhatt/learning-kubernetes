@@ -15,7 +15,7 @@ Removing a running process | ```bash docker rm <Container>```
 Removing all running processes | ```bash docker rm $(docker ps -aq)```
 List Images | ```bash docker images -a```
 Delete Image | ```bash docker rmi <Image>```
-Delete all Images | ```bash docker rmi $(docker images -aq)```
+Delete all Images | ```bash docker image prune```
 Fetch container logs | ```bash docker logs [-f] <Container>```
 
 ## Parameters explained
