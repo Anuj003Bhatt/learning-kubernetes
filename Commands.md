@@ -7,16 +7,19 @@ Operation | Commands
 List running processes/containers (Stopped are not included here) | ```bash docker ps ```
 List all running processes/containers | ```bash docker ps -a```
 List IDs of all running processes/containers | ```bash docker ps -aq```
-Running a container (creates new one from image) | ```bash docker run [-p outPort:inPort]  [-d][-it] <Image ID>```
+Running a container (creates new one from image) | ```bash docker run [-p outPort:inPort]  [-d][-it] <Image>```
 Restarting an existing container | ```bash docker start <Container>``` 
-Stopping a running container | ```bash docker stop <Container ID>```
-Removing a running process | ```bash docker rm <Container ID>```
+Attach to a running container | ```bash docker attach <Container>```
+Stopping a running container | ```bash docker stop <Container>```
+Removing a running process | ```bash docker rm <Container>```
 Removing all running processes | ```bash docker rm $(docker ps -aq)```
 List Images | ```bash docker images -a```
-Delete Image | ```bash docker rmi <Image ID>```
+Delete Image | ```bash docker rmi <Image>```
 Delete all Images | ```bash docker rmi $(docker images -aq)```
+Fetch container logs | ```bash docker logs [-f] <Container>```
 
-## Parameters
+## Parameters explained
 - `-p`: Mention the port to run the container on and the port to bind to internally.
 - `-it`: Launch/Expose interactive session.
 - `-d`: Detached mode
+- `-f`: Follow
