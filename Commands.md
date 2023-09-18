@@ -26,3 +26,5 @@ Option | Command | Meaning
 `-d` | Run Container | Detached mode
 `-f` | Logs |  Follow
 `-a` | Start Container | Start a container in attach mode
+`-a` | List processes / Container | Show all (including stopped containers)
+
