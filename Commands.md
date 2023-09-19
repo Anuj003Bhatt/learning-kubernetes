@@ -7,7 +7,7 @@ Operation | Commands
 List running processes/containers (Stopped are not included here) | ```docker ps ```
 List all running processes/containers | ```docker ps -a```
 List IDs of all running processes/containers | ```docker ps -aq```
-Running a container (creates new one from image) | ```docker run [-p outPort:inPort]  [-d][-it] <Image>```
+Running a container (creates new one from image) | ```docker run [-p outPort:inPort]  [-d][-it][--rm] <Image>```
 Starting an existing container | ```docker start [-a] <Container>``` 
 Attach to a running container | ```docker attach <Container>```
 Stopping a running container | ```docker stop <Container>```
@@ -29,4 +29,5 @@ Option | Command | Meaning
 `-f` | Logs |  Follow
 `-a` | Start Container | Start a container in attach mode
 `-a` | List processes / Container | Show all (including stopped containers)
+`--rm` | Run container | This option removes container automatically once stopped
 
