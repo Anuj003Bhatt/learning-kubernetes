@@ -31,3 +31,14 @@ Option | Command | Meaning
 `-a` | List processes / Container | Show all (including stopped containers)
 `--rm` | Run container | This option removes container automatically once stopped
 
+## Volumes and Bind Mounts
+Types of volumes and their use cases:
+Anonymous Volumes | Named Volumes | Bind Mounts
+--- | --- | ---
+Managed by docker | Managed by docker | Manged by Host file system
+Created for specific container | Created in general and not for a single container | Location on host file system directly mapped inside the container
+Deleted once the container is removed (Note: The volume will survive if the container is stopped only and not removed.) | **NOT** deleted if the container is removed | **NOT** deleted if the container is removed
+Since this is anonymous and tied to single container, it cannot be used to share data across containers | Can be used to share data across containers | Can be used to share data across containers
+Example: `docker run -v volName:/app/vol1` | Example: `docker run -v volName:/app/vol1` | Example: `docker run -v /users/username/git/project:/app/vol1` (The path `/users/username/git/project` is just an example to show that it is a path from the host system itself.)
+
+
