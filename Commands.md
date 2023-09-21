@@ -41,4 +41,36 @@ Deleted once the container is removed (Note: The volume will survive if the cont
 Since this is anonymous and tied to single container, it cannot be used to share data across containers | Can be used to share data across containers | Can be used to share data across containers
 Example: `docker run -v volName:/app/vol1` | Example: `docker run -v volName:/app/vol1` | Example: `docker run -v /users/username/git/project:/app/vol1` (The path `/users/username/git/project` is just an example to show that it is a path from the host system itself.)
 
+## Networking with Containers
 
+### Connecing to Host
+- Instead of `localhost` use `host.docker.internal` (This represents host IP)
+
+### Connecing to Other container
+You can get the IP of container with the following command.
+```bash
+docker container inspect <Container>
+```
+The IP can be found under "Network Settings" in the response.
+
+Although this approach works but always getting the IP and changing the code is not a good approach.
+To address this, networks come to the rescue.
+- Add the containers under the same network using `--network` option
+- Within a network containers can communicate with each other and the IPs are automatically resolved.
+
+To create a network use the below command
+```bash
+docker network create <Network Name>
+```
+
+And then run container using the network option like below
+```bash
+docker run --name <Container Name> --network <Network Name> <image>
+```
+
+To access this container from other containers just use the container name directly instead of `localhost` or `host.docker.internal`.
+
+To get help regarding the command run:
+```bash
+docker network --help
+```
