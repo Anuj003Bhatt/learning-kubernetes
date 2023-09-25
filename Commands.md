@@ -106,7 +106,8 @@ services:
       dockerfile: <Dockerfile Name> # Note here that with this docker compose it is not necessary to keep the name of the docker file as Dockerfile.
       args:
         some-args: arg-value
-
+    depends_on:
+      - database
 volumes:
   namedVol:
   logs:
