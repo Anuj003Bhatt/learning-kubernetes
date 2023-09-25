@@ -74,3 +74,8 @@ To get help regarding the command run:
 ```bash
 docker network --help
 ```
+
+# References
+- Docker Docs: https://docs.docker.com/
+- Docker Compose file: https://docs.docker.com/compose/compose-file/
+
