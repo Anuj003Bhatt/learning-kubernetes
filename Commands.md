@@ -75,6 +75,49 @@ To get help regarding the command run:
 docker network --help
 ```
 
+## Docker Compose 
+Docker compose is an elegant tool for creating and managing multi-container applications. It is based on one configuration file i.e., `docker-compose.yml` (`docker-compose.yaml` is also fine. YAML and YML both are same).
+
+A sample of docker-compose file is pasted below:
+```yaml
+services:
+  database:
+    image: 'mongo'
+    volumes:
+      - namedVol:/data/db
+    environment: # Can be specified using below 2 formats
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+      #- MONGO_INITDB_ROOT_USERNAME=root
+      #- MONGO_INITDB_ROOT_PASSWORD=root
+    # env_file: # Environment variables can also be loaded from a file
+      # - ./env/file # This is the relative path from the docker-compose file
+  service1: # The above is a pre-built image, docker compose can also build images using the build configuration. Just mention the path to the specific dockerfile path
+    build: ./pathToFolderWhereDockerfileIsPresent
+    ports:
+      - '8080:8080' # Format is 'Host Port: Internal Port'
+    volumes:
+      - /app/annonymousVolume
+      - logs:/app/logs
+      - '<Path relative to docker compose for bind mount>':'<Path to bind in container>'
+  service2: # There is a detailed object way to build the image as well
+    build:
+      context: ./pathToFolderWhereDockerfileIsPresent
+      dockerfile: <Dockerfile Name> # Note here that with this docker compose it is not necessary to keep the name of the docker file as Dockerfile.
+      args:
+        some-args: arg-value
+
+volumes:
+  namedVol:
+  logs:
+```
+
+### Notes
+- Docker compose by default creates a network and adds the container to that network
+- It by default runs containers with `--rm` option.
+- To run containers in detached mode use `-d` with docker compose up command. i.e., `docker-compose up -d`
+  
+
 # References
 - Docker Docs: https://docs.docker.com/
 - Docker Compose file: https://docs.docker.com/compose/compose-file/
